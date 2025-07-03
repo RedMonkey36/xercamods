@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "property": "minecraft:using_item",
+    "on_false": {
+      "type": "xercapaint:painted_shield",
+      "base": "minecraft:item/shield"
+    },
+    "on_true": {
+      "type": "xercapaint:painted_shield",
+      "base": "minecraft:item/shield_blocking"
+    }
+  }
+}

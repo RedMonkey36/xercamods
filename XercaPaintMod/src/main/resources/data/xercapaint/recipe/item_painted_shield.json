@@ -1,0 +1,14 @@
+{
+  "type": "xercapaint:crafting_special_painted_shield",
+  "pattern": [
+    " C ",
+    " S "
+  ],
+  "key": {
+    "C": { "item": "xercapaint:item_canvas_tall" },
+    "S": { "item": "minecraft:shield" }
+  },
+  "result": {
+    "item": "xercapaint:painted_shield"
+  }
+}

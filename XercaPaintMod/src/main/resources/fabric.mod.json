@@ -25,10 +25,5 @@
     "fabricloader": "*",
     "fabric-api": "*",
     "minecraft": "1.21.4"
-  },
-  "client": { 
-    "special_model_loaders": { 
-      "painted_shield": "xerca.xercapaint.client.PaintedShieldItemRenderer\u0024Unbaked" 
-    } 
   }
 }

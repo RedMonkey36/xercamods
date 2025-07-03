@@ -21,9 +21,6 @@ import net.minecraft.world.level.Level;
 import xerca.xercapaint.Mod;
 import xerca.xercapaint.item.Items;
 
-// FOR DEBUG: remove
-import net.minecraft.network.chat.Component;
-
 import java.util.List;
 import java.util.UUID;
 import java.util.Map;
@@ -31,6 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @net.fabricmc.api.Environment(net.fabricmc.api.EnvType.CLIENT)
 public class PaintedShieldItemRenderer implements SpecialModelRenderer<ItemStack> {
+
     // NEW: separate width & height
     private static final int CANVAS_WIDTH  = 16;
     private static final int CANVAS_HEIGHT = 32;
@@ -55,14 +53,6 @@ public class PaintedShieldItemRenderer implements SpecialModelRenderer<ItemStack
 
         // If there's a painting component, overlay it
         List<Integer> pixelList = stack.get(Items.CANVAS_PIXELS);
-
-        // DEBUG: remove
-        if (mc.player != null) {
-            mc.player.displayClientMessage(
-                Component.literal("[PaintedShield] pixelList = " + pixelList),
-                false  // false = chat, true = action bar
-            );
-        }
 
         if (pixelList != null) {
             // Convert to primitive and compute a stable UUID

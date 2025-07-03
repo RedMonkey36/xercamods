@@ -79,7 +79,12 @@ public class ModClient implements ClientModInitializer {
     public void onInitializeClient() {
         CANVAS_ITEM_RENDERER = new CanvasItemRenderer();
         SpecialModelRenderers.ID_MAPPER.put(Mod.id("canvas_drawn"), CanvasItemRenderer.Unbaked.MAP_CODEC);
-        SpecialModelRenderers.ID_MAPPER.put(Mod.id("painted_shield"), PaintedShieldItemRenderer.Unbaked.MAP_CODEC);
+        ResourceLocation id = ResourceLocation.parse("xercapaint:painted_shield");
+        SpecialModelRenderers.ID_MAPPER.put(
+            id,
+            PaintedShieldItemRenderer.Unbaked.MAP_CODEC
+        );
+
 
         EntityRendererRegistry.register(Entities.EASEL, new RenderEntityEasel.RenderEntityEaselFactory());
         EntityRendererRegistry.register(Entities.CANVAS, new RenderEntityCanvas.RenderEntityCanvasFactory());

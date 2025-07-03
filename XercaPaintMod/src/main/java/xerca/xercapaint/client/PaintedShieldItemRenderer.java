@@ -4,10 +4,13 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.level.Level;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 
 public class PaintedShieldItemRenderer implements SpecialModelRenderer<ItemStack> {
     @Override
@@ -17,11 +20,22 @@ public class PaintedShieldItemRenderer implements SpecialModelRenderer<ItemStack
                        MultiBufferSource buffers,
                        int light,
                        int overlay,
-                       boolean someFlag) {
-        // For now: just render exactly like the vanilla shield
+                       boolean leftHanded) {
+        // Delegate straight to vanilla shield rendering
+        // Delegate straight to vanilla shield rendering:
         Minecraft mc = Minecraft.getInstance();
-        
-        // TODO
+        Level world = mc.level;              // non-null on client
+        ItemRenderer vanilla = mc.getItemRenderer();
+        vanilla.renderStatic(
+            stack,
+            displayContext,
+            light,
+            overlay,
+            matrices,
+            buffers,
+            world,
+            /* seed */ 0
+        );
     }
 
     @Override

@@ -24,7 +24,7 @@ import xerca.xercapaint.Mod;
 import xerca.xercapaint.item.crafting.RecipeCanvasCloning;
 import xerca.xercapaint.item.crafting.RecipeCraftPalette;
 import xerca.xercapaint.item.crafting.RecipeFillPalette;
-import xerca.xercapaint.item.crafting.RecipePaintedShield;
+import xerca.xercapaint.item.crafting.RecipePaintOnShield;
 import xerca.xercapaint.item.crafting.RecipeTaglessShaped;
 
 import java.nio.ByteBuffer;
@@ -38,18 +38,12 @@ public final class Items {
     public static final ItemCanvas ITEM_CANVAS_LONG = new ItemCanvas(CanvasType.LONG);
     public static final ItemCanvas ITEM_CANVAS_TALL = new ItemCanvas(CanvasType.TALL);
     public static final ItemEasel ITEM_EASEL = new ItemEasel();
-    public static final ItemPaintedShield ITEM_PAINTED_SHIELD = new ItemPaintedShield(
-        new Item.Properties()
-            .setId(ResourceKey.create(Registries.ITEM, Mod.id("painted_shield")))
-            .stacksTo(1)
-            .durability(336)
-    );
 
     public static final RecipeSerializer<RecipeCraftPalette> CRAFTING_SPECIAL_PALETTE_CRAFTING = new CustomRecipe.Serializer<>(RecipeCraftPalette::new);
     public static final RecipeSerializer<RecipeFillPalette> CRAFTING_SPECIAL_PALETTE_FILLING = new CustomRecipe.Serializer<>(RecipeFillPalette::new);
     public static final RecipeSerializer<RecipeCanvasCloning> CRAFTING_SPECIAL_CANVAS_CLONING = new CustomRecipe.Serializer<>(RecipeCanvasCloning::new);
-    public static final RecipeSerializer<RecipePaintedShield> CRAFTING_SPECIAL_PAINTED_SHIELD = new CustomRecipe.Serializer<>(RecipePaintedShield::new);
     public static final RecipeSerializer<RecipeTaglessShaped> CRAFTING_TAGLESS_SHAPED = new RecipeTaglessShaped.TaglessSerializer();
+    public static final RecipeSerializer<RecipePaintOnShield> CRAFTING_SPECIAL_PAINT_ON_SHIELD = new CustomRecipe.Serializer<>(RecipePaintOnShield::new);
 
     public static final DataComponentType<List<Integer>> CANVAS_PIXELS = DataComponentType.<List<Integer>>builder().persistent(Codec.list(Codec.INT)).networkSynchronized(ByteBufCodecs.fromCodec(Codec.list(Codec.INT))).build();
     public static final DataComponentType<Integer> CANVAS_VERSION = DataComponentType.<Integer>builder().persistent(ExtraCodecs.NON_NEGATIVE_INT).networkSynchronized(ByteBufCodecs.VAR_INT).build();
@@ -87,8 +81,8 @@ public final class Items {
         registerRecipeSerializer("crafting_special_palette_crafting", CRAFTING_SPECIAL_PALETTE_CRAFTING);
         registerRecipeSerializer("crafting_special_palette_filling", CRAFTING_SPECIAL_PALETTE_FILLING);
         registerRecipeSerializer("crafting_special_canvas_cloning", CRAFTING_SPECIAL_CANVAS_CLONING);
-        registerRecipeSerializer("crafting_special_painted_shield", CRAFTING_SPECIAL_PAINTED_SHIELD);
         registerRecipeSerializer("crafting_tagless_shaped", CRAFTING_TAGLESS_SHAPED);
+        registerRecipeSerializer("crafting_special_paint_shield", CRAFTING_SPECIAL_PAINT_ON_SHIELD);
     }
 
     public static void registerItems() {
@@ -98,7 +92,6 @@ public final class Items {
         registerItem("item_canvas_long", ITEM_CANVAS_LONG);
         registerItem("item_canvas_tall", ITEM_CANVAS_TALL);
         registerItem("item_easel", ITEM_EASEL);
-        registerItem("painted_shield", ITEM_PAINTED_SHIELD);
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Mod.id("paint_tab"), paintTab);
     }

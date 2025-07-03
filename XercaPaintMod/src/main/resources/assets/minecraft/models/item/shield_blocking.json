@@ -1,0 +1,5 @@
+{
+  "loader": "minecraft:special",
+  "render_type": "xercapaint:painted_shield",
+  "parent": "item/shield_blocking"
+}

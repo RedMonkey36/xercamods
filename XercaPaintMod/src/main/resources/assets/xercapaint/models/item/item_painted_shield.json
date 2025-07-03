@@ -1,6 +1,0 @@
-{
-  "parent": "item/shield",
-  "textures": {
-    "layer0": "xercapaint:item/painted_shield"
-  }
-}

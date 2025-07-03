@@ -7,6 +7,7 @@
   "item.xercapaint.item_canvas_long": "画面（横向）",
   "item.xercapaint.item_canvas_tall": "画布（竖向）",
   "item.xercapaint.item_easel": "画架",
+  "item.xercapaint.item_painted_shield": "绘画盾牌",
 
   "palette.basic_count": "%1$s 基本色",
   "palette.custom_count": "%1$s 自定义颜色",
